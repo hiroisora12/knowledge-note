@@ -17,11 +17,14 @@ export const learningMustache = () => {
       const date = dateObject.getDate();
       return `${year}年${month}月${date}日`;
     },
+    
     name: {
       first: "Michael",
       last: "Jackson"
     },
-    prefectures: prefectures,
+    prefectures: prefectures.map((row) =>{
+      return {label: row.label, value: `${row.value}`.padStart(2, '0')};
+    }),
   };
   // dataオブジェクトリテラルを渡しつつ画面に描画
   app.innerHTML = mustache.render(html, data);
