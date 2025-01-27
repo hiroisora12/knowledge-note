@@ -63,7 +63,10 @@ app.post('/api/v1/login', async (req, res) => {
       res.status(status.HTTP_STATUS_BAD_REQUEST).json({ message: 'ログイン失敗: IDまたはパスワードが無効です。' });
     });
 });
-
+app.post('/api/v1/contact', async (req, res) => {
+  console.log(req.body);
+  res.json({ isSuccess: true, message: '保存成功' });
+})
 // ユーザー登録処理
 app.post('/api/v1/register', async (req, res) => {
   console.log(req.body);
